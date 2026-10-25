@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Creative | Tráfego Pago & Estratégia Digital</title>
+    <meta name="description" content="Gestor de tráfego pago e estrategista digital. Conecto o seu negócio aos clientes certos através de anúncios no Meta e Google Ads e posicionamento estratégico do seu perfil.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de Cor - Dark Mode Sofisticado */
+        :root {
+            --bg-color: #09090b;
+            --surface-color: #121215;
+            --surface-card: #16161b;
+            --surface-hover: #1c1c22;
+            --text-color: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent-primary: #ffffff;
+            --accent-hover: #e4e4e7;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.04);
+            --border-glow: rgba(255, 255, 255, 0.2);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --shadow-float: 0 16px 36px rgba(0, 0, 0, 0.7);
+            --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset e Tipografia */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fundo Dinâmico com Grid Mesh & Gradientes Ambientes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.12), transparent 50%),
+                radial-gradient(circle at 85% 25%, rgba(16, 185, 129, 0.07), transparent 40%),
+                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 32px 32px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Barra de Progresso de Scroll Superior */
+        .scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #2563eb 0%, #00f0ff 65%, #ef4444 100%);
+            z-index: 100000;
+            box-shadow: 0 0 14px rgba(0, 240, 255, 0.8), 0 0 4px rgba(239, 68, 68, 0.6);
+            transition: width 0.08s linear;
+            pointer-events: none;
+        }
+
+        /* Halo / Cursor Glow Dinâmico de Fundo */
+        .cursor-glow {
+            position: fixed;
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(37, 99, 235, 0.04) 45%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: blur(50px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            will-change: left, top;
+        }
+
+        body:hover .cursor-glow {
+            opacity: 1;
+        }
+
+        /* Header & Navegação Fixa com Transição Dinâmica */
+        header#mainHeader {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(9, 9, 11, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+        }
+
+        header#mainHeader.scrolled {
+            background-color: rgba(9, 9, 11, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            color: #09090b;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            border: 1px solid #ffffff;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            transition: none;
+        }
+
+        .btn:hover::before {
+            left: 180%;
+            transition: left 0.75s ease-in-out;
+        }
+
+        .btn svg {
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            color: #09090b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline::before {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: #ffffff;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 0.875rem;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Hero Section com Imagem TK Creative em Fundo à Direita */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: calc(90vh - 76px);
+            padding: 90px 0 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container-front {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Fundo Luminoso Degradê com TK Creative Destacado */
+        .hero-bg-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Degradê Luminoso Suave e Atmosférico como Antes */
+        .hero-bg-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 65% 60% at calc(50% + 340px) 50%, 
+                rgba(1, 15, 50, 0.95) 0%, 
+                rgba(3, 22, 68, 0.75) 35%, 
+                rgba(14, 165, 233, 0.22) 58%, 
+                rgba(9, 9, 11, 0.8) 75%,
+                transparent 100%
+            );
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 780px;
+            height: 780px;
+            top: 50%;
+            left: calc(50% + 340px);
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, 
+                rgba(14, 165, 233, 0.45) 0%, 
+                rgba(37, 99, 235, 0.35) 35%, 
+                rgba(30, 64, 175, 0.18) 55%, 
+                transparent 72%
+            );
+            filter: blur(65px);
+            border-radius: 50%;
+            animation: ambient-pulse 6s ease-in-out infinite alternate;
+        }
+
+        /* TK Creative Destacado — Logo Transparente e Luminous Glow */
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            background-image: url('./assets/logo-tk-creative-clean.png');
+            background-position: calc(50% + 340px) center;
+            background-repeat: no-repeat;
+            background-size: min(580px, 44vw) auto;
+            opacity: 1;
+            filter: brightness(1.22) contrast(1.15) drop-shadow(0 0 25px rgba(14, 165, 233, 0.55)) drop-shadow(0 0 60px rgba(37, 99, 235, 0.35));
+            animation: logo-vibe 6s ease-in-out infinite alternate;
+            transition: all 0.5s ease;
+        }
+
+        /* Suavização Lateral para 100% de Legibilidade do Texto à Esquerda */
+        .hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, 
+                #09090b 0%, 
+                #09090b 38%, 
+                rgba(9, 9, 11, 0.85) 48%, 
+                rgba(9, 9, 11, 0.3) 60%, 
+                transparent 75%
+            ),
+            linear-gradient(180deg, 
+                #09090b 0%, 
+                transparent 18%, 
+                transparent 82%, 
+                #09090b 100%
+            );
+        }
+
+        @keyframes ambient-pulse {
+            0% { opacity: 0.65; transform: translate(-50%, -50%) scale(0.96); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+        }
+
+        @keyframes logo-vibe {
+            0% {
+                filter: brightness(1.18) contrast(1.15) drop-shadow(0 0 22px rgba(14, 165, 233, 0.45)) drop-shadow(0 0 50px rgba(37, 99, 235, 0.25));
+                transform: scale(0.99);
+            }
+            100% {
+                filter: brightness(1.26) contrast(1.20) drop-shadow(0 0 35px rgba(14, 165, 233, 0.65)) drop-shadow(0 0 75px rgba(37, 99, 235, 0.45));
+                transform: scale(1.015);
+            }
+        }
+
+        .hero-content {
+            max-width: 680px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .hero-badges-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            background: rgba(18, 18, 22, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-badge:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            transform: translateY(-2px);
+        }
+
+        .hero-badge-strategist strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .hero-badge-strategist .badge-status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+            display: inline-block;
+        }
+
+        .pulse-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10b981;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            margin-bottom: 24px;
+            color: #ffffff;
+            text-shadow: 0 4px 32px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Texto Dinâmico com Efeito de Troca & Gradiente */
+        .dynamic-wrapper {
+            display: inline-block;
+            color: #ef4444;
+        }
+
+        .dynamic-word {
+            display: inline-block;
+            color: #ef4444;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            position: relative;
+        }
+
+        .dynamic-word.fade-out {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .dynamic-word.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin: 0 0 38px 0;
+            line-height: 1.6;
+            max-width: 580px;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+
+        /* Secções Gerais */
+        .section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 64px auto;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        /* Efeito Spotlight Interativo com Movimento do Rato */
+        .spotlight-card {
+            position: relative;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(255, 255, 255, 0.08), transparent 40%);
+            pointer-events: none;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Cards de Serviços: Como Escalo o Seu Negócio (3 Pilares) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 36px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(165deg, rgba(22, 22, 27, 0.95), rgba(14, 14, 18, 0.98));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+            will-change: transform;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
+        }
+
+        .service-card:active {
+            transform: translateY(-2px) scale(0.99) !important;
+        }
+
+        .service-card .service-icon,
+        .service-card .service-badge,
+        .service-card h3,
+        .service-card .service-tags,
+        .service-card .service-action-btn {
+            transform: translateZ(22px);
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card.card-performance:hover {
+            border-color: rgba(59, 130, 246, 0.55);
+            box-shadow: 0 24px 50px rgba(59, 130, 246, 0.22);
+        }
+
+        .service-card.card-desenvolvimento:hover {
+            border-color: rgba(16, 185, 129, 0.55);
+            box-shadow: 0 24px 50px rgba(16, 185, 129, 0.22);
+        }
+
+        .service-card.card-posicionamento:hover {
+            border-color: rgba(168, 85, 247, 0.55);
+            box-shadow: 0 24px 50px rgba(168, 85, 247, 0.22);
+        }
+
+        .service-card.card-posicionamento::before {
+            background: radial-gradient(420px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(168, 85, 247, 0.2), transparent 45%);
+        }
+
+        .service-card.card-performance::before {
+            background: radial-gradient(420px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(59, 130, 246, 0.2), transparent 45%);
+        }
+
+        .service-card.card-desenvolvimento::before {
+            background: radial-gradient(420px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(16, 185, 129, 0.2), transparent 45%);
+        }
+
+        .service-card-top {
+            margin-bottom: 20px;
+        }
+
+        .service-icon-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .service-icon.icon-performance {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .service-icon.icon-desenvolvimento {
+            color: #34d399;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .service-icon.icon-posicionamento {
+            color: #c084fc;
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        .service-card:hover .service-icon.icon-performance {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.35);
+        }
+
+        .service-card:hover .service-icon.icon-desenvolvimento {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+        }
+
+        .service-card:hover .service-icon.icon-posicionamento {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+        }
+
+        .service-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .badge-green {
+            background: rgba(16, 185, 129, 0.1);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.1);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        .service-card h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            min-height: 48px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .service-tags li {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 5px 11px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .service-tags li:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .service-tags li.active {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: #ffffff;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .service-tags li.active::before {
+            content: '✓ ';
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .service-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-sm);
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            transition: none;
+        }
+
+        .service-action-btn:hover::before {
+            left: 180%;
+            transition: left 0.75s ease-in-out;
+        }
+
+        .service-action-btn svg {
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .service-action-btn {
+            background: #ffffff;
+            color: #09090b;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card:hover .service-action-btn svg {
+            transform: translateX(4px);
+        }
+
+        /* Efeito de flash ao rolar para o formulário */
+        @keyframes formHighlight {
+            0% { border-color: rgba(59, 130, 246, 0.9); box-shadow: 0 0 32px rgba(59, 130, 246, 0.4); }
+            50% { border-color: rgba(59, 130, 246, 0.6); box-shadow: 0 0 24px rgba(59, 130, 246, 0.25); }
+            100% { border-color: var(--border-color); box-shadow: none; }
+        }
+
+        .highlight-pulse {
+            animation: formHighlight 1.8s ease-out;
+        }
+
+        /* Secção Sobre Mim */
+        .about-section {
+            background-color: #0c0c0f;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .about-image-card {
+            position: sticky;
+            top: 100px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            aspect-ratio: 4 / 5;
+            background-color: #121215;
+            transform-style: preserve-3d;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        .about-image-card:hover {
+            border-color: rgba(255, 255, 255, 0.32);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(59, 130, 246, 0.18);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image-card:hover .about-image {
+            transform: scale(1.035);
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .about-lead {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            padding-left: 18px;
+            border-left: 3px solid #ffffff;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Contato e Formulário */
+        .contact-section {
+            background-color: #0c0c0f;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+        }
+
+        .contact-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-details svg {
+            color: #ffffff;
+        }
+
+        .contact-form {
+            padding: 44px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-sm);
+            background-color: #18181c;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: #ffffff;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            background-color: #1e1e24;
+        }
+
+        .form-notice {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        /* Estilos do WhatsApp */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #ffffff !important;
+            border-color: #25D366;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            border-color: #20ba5a;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-contact-card {
+            margin-top: 32px;
+            padding: 24px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .whatsapp-contact-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+        }
+
+        .whatsapp-contact-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-float-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-float-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+        }
+
+        .whatsapp-float:hover .whatsapp-float-btn {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float-pulse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: whatsapp-pulse 2s infinite ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes whatsapp-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        .whatsapp-float-tooltip {
+            background-color: #18181c;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #25D366;
+            border-radius: 50%;
+        }
+
+        .whatsapp-float:hover .whatsapp-float-tooltip {
+            transform: translateX(-4px);
+        }
+
+        /* Animação Scroll Reveal com Cascata e Direções */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-38px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(38px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.visible,
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+        .reveal-delay-3 { transition-delay: 0.38s; }
+
+        /* Rodapé */
+        footer {
+            padding: 60px 0 32px 0;
+            background-color: #060608;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            max-width: 320px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .footer-col h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content { max-width: 100%; text-align: center; margin: 0 auto; }
+            .hero-content h1 { font-size: 2.85rem; }
+            .hero-content p { margin: 0 auto 36px; max-width: 100%; }
+            .hero-badges-row { justify-content: center; }
+            .hero-actions { justify-content: center; }
+            .hero-bg-gradient {
+                background: radial-gradient(circle at 50% 32%, 
+                    rgba(1, 15, 50, 0.9) 0%, 
+                    rgba(3, 22, 68, 0.6) 40%, 
+                    rgba(14, 165, 233, 0.15) 60%, 
+                    transparent 75%
+                );
+            }
+            .hero-bg-image { 
+                background-position: center 32%; 
+                background-size: min(360px, 75vw) auto; 
+                opacity: 0.85;
+            }
+            .hero-bg-glow { 
+                left: 50%; 
+                top: 32%;
+                width: 480px;
+                height: 480px;
+            }
+            .hero-bg-overlay {
+                background: radial-gradient(circle at 50% 32%, rgba(9, 9, 11, 0.35) 0%, rgba(9, 9, 11, 0.88) 72%, #09090b 100%),
+                            linear-gradient(180deg, rgba(9, 9, 11, 0.75) 0%, transparent 32%, rgba(9, 9, 11, 0.98) 100%);
+            }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 80px 0 60px 0; min-height: auto; }
+            .hero-content h1 { font-size: 2.35rem; }
+            .hero-content p { font-size: 1.05rem; }
+            .hero-bg-image { background-size: min(300px, 75vw) auto; opacity: 0.8; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-badges-row { flex-direction: column; gap: 8px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .whatsapp-float-tooltip { display: none; }
+            .whatsapp-float { bottom: 20px; right: 20px; }
+            .whatsapp-float-btn { width: 54px; height: 54px; }
+            .whatsapp-float-btn svg { width: 28px; height: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Progresso Superior de Scroll -->
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+    <!-- Halo / Cursor Glow Dinâmico de Fundo -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Header / Barra de Navegação -->
+    <header id="mainHeader">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <img src="./assets/logo-tk-creative-clean.png" alt="TK Creative" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.45));">
+                TK Creative
+            </a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contato" class="btn btn-sm">Agendar Reunião</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Secção Hero com Logo TK Creative em Fundo & Textos na Frente -->
+        <section class="hero">
+            <!-- Fundo com Imagem TK Creative & Iluminação Dinâmica -->
+            <div class="hero-bg-container">
+                <div class="hero-bg-gradient"></div>
+                <div class="hero-bg-glow"></div>
+                <div class="hero-bg-image"></div>
+                <div class="hero-bg-overlay"></div>
+            </div>
+
+            <div class="container hero-container-front">
+                <div class="hero-content reveal">
+                    <h1>Tráfego pago e estratégia digital que geram <span class="dynamic-wrapper"><span class="dynamic-word" id="dynamicText">clientes qualificados.</span></span></h1>
+                    
+                    <p>Conecto o seu negócio aos clientes certos através de anúncios no Meta e Google Ads, alinhados ao posicionamento de autoridade do seu perfil.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#contato" class="btn">
+                            Solicitar Diagnóstico Gratuito
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#servicos" class="btn btn-outline">Explorar Serviços</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção Sobre Mim -->
+        <section class="section about-section" id="sobre">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-card reveal reveal-left">
+                        <img src="./assets/foto-consultor.jpg" alt="Consultor Estratégico" class="about-image">
+                    </div>
+
+                    <div class="about-content reveal reveal-right">
+                        <span class="section-tag">Sobre Mim</span>
+                        <h2>Estratégia, clareza e resultados reais.</h2>
+                        
+                        <p class="about-lead">Acredito que o ambiente digital não precisa de ruídos ou distrações — precisa de estratégia, clareza e resultados.</p>
+
+                        <p>A minha jornada no marketing digital começou em 2019. Iniciei nas trincheiras do mercado como afiliado de cursos, onde aprendi na prática o que realmente faz um utilizador clicar e comprar. A partir dessa base, evoluí para o marketing de performance no Instagram e passei a estruturar estratégias avançadas de engajamento, focando no crescimento orgânico sustentável.</p>
+
+                        <p>Essa experiência de campo mostrou-me que muitas empresas têm produtos excelentes, mas falham no momento de conectar a oferta ao público certo ou de criar um ambiente digital que facilite a compra. É exatamente nessa lacuna que eu atuo hoje.</p>
+
+                        <p>O meu trabalho consiste em unir o melhor de dois mundos: o marketing de performance orgânica e o planejamento de posicionamento através de Meta Ads e Google Ads. Além disso, utilizo a minha bagagem prática em crescimento orgânico para auditar e direcionar o seu Instagram de forma estratégica.</p>
+
+                        <p>Não acredito em fórmulas mágicas ou designs complexos que não vendem. O meu foco é simples: crescimento escalável para o seu negócio.</p>
+
+                        <div style="margin-top: 36px;">
+                            <a href="#contato" class="btn">Agendar uma Reunião</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Escalo o Seu Negócio (3 Pilares) -->
+        <section class="section" id="servicos">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Metodologia de Escala</span>
+                    <h2 class="section-title">Como escalo o seu negócio:</h2>
+                    <p class="section-subtitle">Três pilares estratégicos e complementares desenhados para gerar previsibilidade, autoridade e vendas.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Opção 1: Posicionamento -->
+                    <div class="service-card card-posicionamento spotlight-card reveal reveal-delay-1" onclick="selectServiceAndScroll('posicionamento', event)">
+                        <div class="service-card-top">
+                            <div class="service-icon-row">
+                                <div class="service-icon icon-posicionamento">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </div>
+                                <span class="service-badge badge-purple">Instagram</span>
+                            </div>
+                            <h3>Posicionamento</h3>
+                            <p>Auditoria e estratégia de engajamento orgânico no Instagram.</p>
+                        </div>
+
+                        <div class="service-card-bottom">
+                            <ul class="service-tags">
+                                <li onclick="toggleTag(event, this)">Auditoria de Perfil</li>
+                                <li onclick="toggleTag(event, this)">Engajamento Orgânico</li>
+                                <li onclick="toggleTag(event, this)">Autoridade Digital</li>
+                                <li onclick="toggleTag(event, this)">Retenção de Audiência</li>
+                            </ul>
+
+                            <button type="button" class="service-action-btn" onclick="selectServiceAndScroll('posicionamento', event)">
+                                Escolher Posicionamento
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Opção 2: Performance -->
+                    <div class="service-card card-performance spotlight-card reveal reveal-delay-2" onclick="selectServiceAndScroll('performance', event)">
+                        <div class="service-card-top">
+                            <div class="service-icon-row">
+                                <div class="service-icon icon-performance">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                        <path d="M16 8l4-4M20 4h-4M20 4v4"></path>
+                                    </svg>
+                                </div>
+                                <span class="service-badge badge-blue">Tráfego Pago</span>
+                            </div>
+                            <h3>Performance</h3>
+                            <p>Gestão de tráfego avançada (Google Ads e Meta Ads).</p>
+                        </div>
+
+                        <div class="service-card-bottom">
+                            <ul class="service-tags">
+                                <li onclick="toggleTag(event, this)">Google Ads</li>
+                                <li onclick="toggleTag(event, this)">Meta Ads</li>
+                                <li onclick="toggleTag(event, this)">Escala de Vendas</li>
+                                <li onclick="toggleTag(event, this)">Menor CAC</li>
+                            </ul>
+
+                            <button type="button" class="service-action-btn" onclick="selectServiceAndScroll('performance', event)">
+                                Escolher Performance
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Opção 3: Desenvolvimento -->
+                    <div class="service-card card-desenvolvimento spotlight-card reveal reveal-delay-3" onclick="selectServiceAndScroll('desenvolvimento', event)">
+                        <div class="service-card-top">
+                            <div class="service-icon-row">
+                                <div class="service-icon icon-desenvolvimento">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        <path d="M13 7l-3 4h4l-2 4"></path>
+                                    </svg>
+                                </div>
+                                <span class="service-badge badge-green">Landing Pages</span>
+                            </div>
+                            <h3>Desenvolvimento</h3>
+                            <p>Landing pages e sites ultrarrápidos desenhados para vender.</p>
+                        </div>
+
+                        <div class="service-card-bottom">
+                            <ul class="service-tags">
+                                <li onclick="toggleTag(event, this)">Landing Pages Rápidas</li>
+                                <li onclick="toggleTag(event, this)">Foco em Vendas</li>
+                                <li onclick="toggleTag(event, this)">Mobile First</li>
+                                <li onclick="toggleTag(event, this)">Alta Conversão</li>
+                            </ul>
+
+                            <button type="button" class="service-action-btn" onclick="selectServiceAndScroll('desenvolvimento', event)">
+                                Escolher Desenvolvimento
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato / Formulário de Conversão -->
+        <section class="section contact-section" id="contato">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info reveal reveal-left">
+                        <span class="section-tag">Próximo Passo</span>
+                        <h2>Pronto para acelerar o seu negócio?</h2>
+                        <p>Preencha o formulário ao lado para agendarmos uma reunião sem compromisso. Analisarei o seu caso e entrarei em contato em menos de 24 horas.</p>
+
+                        <ul class="contact-details">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <strong>Email:</strong> <a href="mailto:ttalison35@gmail.com" style="color: inherit; text-decoration: none;">ttalison35@gmail.com</a>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <strong>WhatsApp / Tel:</strong> +55 (41) 99266-1165
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <strong>Endereço:</strong> Av. Paraná, 467 - Fazenda Rio Grande, PR
+                            </li>
+                        </ul>
+
+                        <div class="whatsapp-contact-card">
+                            <div>
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.16 1.6 5.98L0 24l6.23-1.63a11.9 11.9 0 005.83 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.1.25-1.24-5.43zM12.06 21.88h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.75.98 1-3.65-.23-.37a9.88 9.88 0 01-1.52-5.28c0-5.46 4.44-9.9 9.91-9.9 2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.01c0 5.46-4.44 9.9-9.91 9.9zm5.43-7.42c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.22 3.08.15.2 2.11 3.22 5.11 4.52.71.31 1.27.5 1.7.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+                                    Prefere resposta imediata?
+                                </h4>
+                                <p>Fale diretamente comigo para esclarecer dúvidas ou alinhar o início do seu projeto.</p>
+                            </div>
+                            <a href="https://wa.me/5541992661165?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20consultoria." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.16 1.6 5.98L0 24l6.23-1.63a11.9 11.9 0 005.83 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.1.25-1.24-5.43zM12.06 21.88h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.75.98 1-3.65-.23-.37a9.88 9.88 0 01-1.52-5.28c0-5.46 4.44-9.9 9.91-9.9 2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.01c0 5.46-4.44 9.9-9.91 9.9zm5.43-7.42c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.22 3.08.15.2 2.11 3.22 5.11 4.52.71.31 1.27.5 1.7.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+                                Iniciar Conversa no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form spotlight-card reveal reveal-right">
+                        <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nome">Nome Completo *</label>
+                                    <input type="text" id="nome" name="nome" placeholder="ex: Ana Santos" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Profissional *</label>
+                                    <input type="email" id="email" name="email" placeholder="ana@empresa.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telefone">WhatsApp / Telefone *</label>
+                                    <input type="tel" id="telefone" name="telefone" placeholder="(41) 99266-..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website ou Empresa</label>
+                                    <input type="text" id="website" name="website" placeholder="www.suaempresa.com.br">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="servico_interesse">Área de Principal Interesse *</label>
+                                <select id="servico_interesse" name="servico" required>
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="posicionamento">Posicionamento: Auditoria & Instagram</option>
+                                    <option value="performance">Performance: Tráfego Pago (Google & Meta Ads)</option>
+                                    <option value="desenvolvimento">Desenvolvimento: Landing Pages & Sites</option>
+                                    <option value="completo">Estratégia Completa 360°</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagem">Qual é o seu maior desafio atual?</label>
+                                <textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte-me brevemente sobre os seus objetivos e prazos pretendidos..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-full">Agendar uma Reunião</button>
+                            <p class="form-notice">Os seus dados estão seguros. Não envio spam nem partilho informações com terceiros.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="./assets/logo-tk-creative-clean.png" alt="TK Creative" style="width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.45));">
+                        TK Creative
+                    </a>
+                    <p>Especialista em tráfego pago de alta precisão (Google & Meta Ads), estratégia digital e landing pages orientadas a conversão.</p>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Av. Paraná, 467 - Fazenda Rio Grande, PR
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Serviços</h5>
+                    <ul>
+                        <li><a href="#servicos" onclick="selectServiceAndScroll('posicionamento', event)">Posicionamento (Instagram)</a></li>
+                        <li><a href="#servicos" onclick="selectServiceAndScroll('performance', event)">Performance (Tráfego Pago)</a></li>
+                        <li><a href="#servicos" onclick="selectServiceAndScroll('desenvolvimento', event)">Desenvolvimento (Landing Pages)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Navegação</h5>
+                    <ul>
+                        <li><a href="#sobre">Sobre Mim</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 TK Creative. Todos os direitos reservados.</p>
+                <p>Feito com foco em performance e simplicidade.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interativo & Dinâmico -->
+    <script>
+        // 1. Alternância Dinâmica de Palavras no Hero
+        const words = [
+            "clientes qualificados.",
+            "mais vendas.",
+            "mais lucro."
+        ];
+        let wordIndex = 0;
+        const dynamicTextEl = document.getElementById('dynamicText');
+
+        setInterval(() => {
+            if (!dynamicTextEl) return;
+            dynamicTextEl.classList.add('fade-out');
+            setTimeout(() => {
+                wordIndex = (wordIndex + 1) % words.length;
+                dynamicTextEl.textContent = words[wordIndex];
+                dynamicTextEl.classList.remove('fade-out');
+                dynamicTextEl.classList.add('fade-in');
+            }, 350);
+        }, 2800);
+
+        // 2. Halo de Luz Ambiente que Acompanha o Cursor (Desktop)
+        const cursorGlow = document.getElementById('cursorGlow');
+        if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+            window.addEventListener('mousemove', e => {
+                cursorGlow.style.left = `${e.clientX}px`;
+                cursorGlow.style.top = `${e.clientY}px`;
+            }, { passive: true });
+        }
+
+        // 3. Barra de Progresso de Scroll Superior & Header Dinâmico
+        const scrollBar = document.getElementById('scrollProgressBar');
+        const mainHeader = document.getElementById('mainHeader');
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            if (scrollBar) {
+                scrollBar.style.width = `${scrolled}%`;
+            }
+
+            if (mainHeader) {
+                if (winScroll > 35) {
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                }
+            }
+        }, { passive: true });
+
+        // 4. Efeito 3D Tilt Físico Interativo nos Cards de Serviços
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Spotlight interno
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // Inclinação 3D proporcional ao centro
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -9;
+                const rotateY = ((x - centerX) / centerX) * 9;
+
+                card.style.transform = `perspective(850px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(850px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
+
+        // 5. Efeito 3D Tilt Físico na Foto do Consultor
+        const aboutCard = document.querySelector('.about-image-card');
+        if (aboutCard) {
+            aboutCard.addEventListener('mousemove', e => {
+                const rect = aboutCard.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -7;
+                const rotateY = ((x - centerX) / centerX) * 7;
+
+                aboutCard.style.transform = `perspective(950px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-5px)`;
+            });
+
+            aboutCard.addEventListener('mouseleave', () => {
+                aboutCard.style.transform = 'perspective(950px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        }
+
+        // 6. Animação Scroll Reveal com Cascata Direcional (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            threshold: 0.12,
+            rootMargin: "0px 0px -40px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 7. Interatividade Dinâmica: Seleção de Serviços e Tags nos Cards
+        function selectServiceAndScroll(serviceType, event) {
+            if (event && event.target && event.target.tagName && event.target.tagName.toLowerCase() === 'li') {
+                return;
+            }
+            const selectEl = document.getElementById('servico_interesse');
+            if (selectEl) {
+                selectEl.value = serviceType;
+            }
+            const contactSection = document.getElementById('contato');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                const formCard = document.querySelector('.contact-form');
+                if (formCard) {
+                    formCard.classList.remove('highlight-pulse');
+                    void formCard.offsetWidth;
+                    formCard.classList.add('highlight-pulse');
+                }
+                const nameInput = document.getElementById('nome');
+                if (nameInput) {
+                    setTimeout(() => nameInput.focus(), 650);
+                }
+            }
+        }
+
+        function toggleTag(event, element) {
+            event.stopPropagation();
+            element.classList.toggle('active');
+        }
+
+        // 8. Highlighting Ativo no Menu de Navegação ao Rolar
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 9. Simulação de envio com feedback visual
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Obrigado pelo contato! Entrarei em contato nas próximas 24 horas.');
+                event.target.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 800);
+        }
+    </script>
+
+    <!-- Botão WhatsApp Flutuante com Efeito Pulse -->
+    <a href="https://wa.me/5541992661165?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20sua%20consultoria." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-float" 
+       aria-label="Fale comigo no WhatsApp">
+        <span class="whatsapp-float-tooltip">
+            <span class="whatsapp-status-dot"></span>
+            Falar no WhatsApp
+        </span>
+        <div class="whatsapp-float-btn">
+            <div class="whatsapp-float-pulse"></div>
+            <svg viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.16 1.6 5.98L0 24l6.23-1.63a11.9 11.9 0 005.83 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.1.25-1.24-5.43zM12.06 21.88h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.75.98 1-3.65-.23-.37a9.88 9.88 0 01-1.52-5.28c0-5.46 4.44-9.9 9.91-9.9 2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.01c0 5.46-4.44 9.9-9.91 9.9zm5.43-7.42c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.22 3.08.15.2 2.11 3.22 5.11 4.52.71.31 1.27.5 1.7.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+            </svg>
+        </div>
+    </a>
+</body>
+</html>

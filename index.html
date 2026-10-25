@@ -15,9 +15,9 @@
             --surface-color: #121215;
             --surface-card: #16161b;
             --surface-hover: #1c1c22;
-            --text-color: #f4f4f5;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-color: #ffffff;
+            --text-secondary: #ffffff;
+            --text-muted: #e2e8f0;
             --accent-primary: #ffffff;
             --accent-hover: #e4e4e7;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -171,7 +171,7 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: #ffffff;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
@@ -417,7 +417,7 @@
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: #ffffff;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -540,7 +540,7 @@
 
         .section-subtitle {
             font-size: 1.15rem;
-            color: var(--text-secondary);
+            color: #ffffff;
         }
 
         /* Efeito Spotlight Interativo com Movimento do Rato */
@@ -734,7 +734,7 @@
         }
 
         .service-card p {
-            color: var(--text-secondary);
+            color: #ffffff;
             font-size: 0.96rem;
             line-height: 1.6;
             margin-bottom: 22px;
@@ -754,7 +754,7 @@
             border: 1px solid var(--border-color);
             font-size: 0.78rem;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: #ffffff;
             padding: 5px 11px;
             border-radius: var(--radius-sm);
             transition: all 0.2s ease;
@@ -913,7 +913,7 @@
 
         .about-content p {
             font-size: 1.05rem;
-            color: var(--text-secondary);
+            color: #ffffff;
             line-height: 1.7;
             margin-bottom: 20px;
         }
@@ -943,7 +943,7 @@
 
         .contact-info p {
             font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: #ffffff;
             margin-bottom: 36px;
         }
 
@@ -1058,7 +1058,7 @@
 
         .whatsapp-contact-card p {
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: #ffffff;
             margin-bottom: 4px;
             line-height: 1.5;
         }
@@ -1198,7 +1198,7 @@
             margin-top: 16px;
             max-width: 320px;
             line-height: 1.6;
-            color: var(--text-secondary);
+            color: #ffffff;
         }
 
         .footer-col h5 {
@@ -1216,7 +1216,7 @@
         }
 
         .footer-col a {
-            color: var(--text-secondary);
+            color: #ffffff;
             text-decoration: none;
             transition: var(--transition-smooth);
         }
@@ -1239,9 +1239,8 @@
         @media (max-width: 992px) {
             .hero-content { max-width: 100%; text-align: center; margin: 0 auto; }
             .hero-content h1 { font-size: 2.85rem; }
-            .hero-content p { margin: 0 auto 36px; max-width: 100%; }
+            .hero-content p { margin: 0 auto 36px; max-width: 100%; color: #ffffff; }
             .hero-badges-row { justify-content: center; }
-            .hero-actions { justify-content: center; }
             .hero-bg-gradient {
                 background: radial-gradient(circle at 50% 32%, 
                     rgba(1, 15, 50, 0.9) 0%, 
@@ -1271,21 +1270,213 @@
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
+        /* Otimiza&ccedil;&atilde;o Completa para Celulares e Navegadores Mobile */
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .section {
+                padding: 68px 0;
+            }
             .nav-links { display: none; }
-            .hero { padding: 80px 0 60px 0; min-height: auto; }
-            .hero-content h1 { font-size: 2.35rem; }
-            .hero-content p { font-size: 1.05rem; }
-            .hero-bg-image { background-size: min(300px, 75vw) auto; opacity: 0.8; }
-            .hero-actions { flex-direction: column; align-items: stretch; }
-            .hero-badges-row { flex-direction: column; gap: 8px; }
-            .form-row { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .nav-wrapper {
+                padding: 14px 20px;
+            }
+            .logo {
+                font-size: 1.15rem;
+            }
+            .hero {
+                padding: 110px 0 54px 0;
+                min-height: auto;
+            }
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                margin: 0 auto;
+                padding: 0 4px;
+            }
+            .hero-content h1 {
+                font-size: clamp(1.9rem, 7vw, 2.45rem);
+                line-height: 1.22;
+                margin-bottom: 20px;
+                word-break: break-word;
+            }
+            .hero-content p {
+                font-size: 1.08rem;
+                line-height: 1.65;
+                margin: 0 auto 28px;
+                max-width: 100%;
+                color: #ffffff;
+            }
+            .dynamic-wrapper {
+                display: inline-block;
+            }
+            .dynamic-word {
+                white-space: normal;
+                word-break: normal;
+            }
+            .hero-bg-gradient {
+                background: radial-gradient(circle at 50% 28%, 
+                    rgba(1, 15, 50, 0.95) 0%, 
+                    rgba(3, 22, 68, 0.7) 45%, 
+                    rgba(14, 165, 233, 0.2) 65%, 
+                    transparent 80%
+                );
+            }
+            .hero-bg-image { 
+                background-position: center 26%; 
+                background-size: min(290px, 74vw) auto; 
+                opacity: 0.85;
+            }
+            .hero-bg-glow { 
+                left: 50%; 
+                top: 26%;
+                width: 340px;
+                height: 340px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .about-image-card {
+                max-width: 330px;
+                margin: 0 auto;
+            }
+            .about-image {
+                height: 380px;
+            }
+            .about-content {
+                padding: 0 4px;
+            }
+            .about-content h2 {
+                font-size: 1.85rem;
+                line-height: 1.25;
+            }
+            .about-lead {
+                font-size: 1.15rem;
+                line-height: 1.6;
+                padding-left: 14px;
+                margin-bottom: 22px;
+                color: #ffffff;
+            }
+            .about-content p {
+                font-size: 1.05rem;
+                line-height: 1.75;
+                margin-bottom: 20px;
+                color: #ffffff;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+            .service-card {
+                padding: 28px 22px;
+            }
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+            .service-card p {
+                font-size: 1rem;
+                line-height: 1.65;
+                color: #f1f5f9;
+            }
+            .service-tags li {
+                font-size: 0.82rem;
+                padding: 7px 13px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+            }
+            .contact-card {
+                padding: 28px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .form-group input, 
+            .form-group select, 
+            .form-group textarea {
+                font-size: 16px; /* Evita zoom autom&aacute;tico no iPhone / Safari */
+                padding: 14px 16px;
+                color: #ffffff;
+            }
+            .btn {
+                min-height: 48px;
+                font-size: 0.98rem;
+                padding: 14px 24px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 34px;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 16px auto 0;
+                color: #f1f5f9;
+            }
+            .footer-col ul {
+                align-items: center;
+            }
+            .footer-col a {
+                color: #f1f5f9;
+                font-size: 0.96rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
             .whatsapp-float-tooltip { display: none; }
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .whatsapp-float-btn { width: 54px; height: 54px; }
-            .whatsapp-float-btn svg { width: 28px; height: 28px; }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float-btn {
+                width: 56px;
+                height: 56px;
+            }
+            .whatsapp-float-btn svg {
+                width: 29px;
+                height: 29px;
+            }
+            /* Desativa tilt 3D no touch para rolagem super r&aacute;pida e suave */
+            .spotlight-card, .service-card, .about-image-card {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section {
+                padding: 56px 0;
+            }
+            .hero-content h1 {
+                font-size: 1.88rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.85rem;
+            }
+            .section-subtitle {
+                font-size: 1.02rem;
+            }
+            .about-image {
+                height: 320px;
+            }
+            .nav-cta .btn {
+                padding: 9px 15px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>

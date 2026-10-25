@@ -474,6 +474,7 @@
             color: #ef4444;
         }
 
+        .highlight-red { color: #ef4444; font-weight: 800; display: inline; }
         .dynamic-word {
             display: inline-block;
             color: #ef4444;
@@ -1315,7 +1316,8 @@
             .dynamic-wrapper {
                 display: inline-block;
             }
-            .dynamic-word {
+            .highlight-red { color: #ef4444; font-weight: 800; display: inline; }
+        .dynamic-word {
                 white-space: normal;
                 word-break: normal;
             }
@@ -1518,7 +1520,7 @@
 
             <div class="container hero-container-front">
                 <div class="hero-content reveal">
-                    <h1>Tr&aacute;fego pago e estrat&eacute;gia digital que geram <span class="dynamic-wrapper"><span class="dynamic-word" id="dynamicText">clientes qualificados.</span></span></h1>
+                    <h1>Tr&aacute;fego pago e estrat&eacute;gia digital que geram <span class="highlight-red">mais vendas.</span></h1>
                     
                     <p>Conecto o seu neg&oacute;cio aos clientes certos atrav&eacute;s de an&uacute;ncios no Meta e Google Ads, alinhados ao posicionamento de autoridade do seu perfil.</p>
                     
@@ -1802,25 +1804,7 @@
 
     <!-- JavaScript Interativo & Din&acirc;mico -->
     <script>
-        // 1. Altern&acirc;ncia Din&acirc;mica de Palavras no Hero
-        const words = [
-            "clientes qualificados.",
-            "mais vendas.",
-            "mais lucro."
-        ];
-        let wordIndex = 0;
-        const dynamicTextEl = document.getElementById('dynamicText');
 
-        setInterval(() => {
-            if (!dynamicTextEl) return;
-            dynamicTextEl.classList.add('fade-out');
-            setTimeout(() => {
-                wordIndex = (wordIndex + 1) % words.length;
-                dynamicTextEl.textContent = words[wordIndex];
-                dynamicTextEl.classList.remove('fade-out');
-                dynamicTextEl.classList.add('fade-in');
-            }, 350);
-        }, 2800);
 
         // 2. Halo de Luz Ambiente que Acompanha o Cursor (Desktop)
         const cursorGlow = document.getElementById('cursorGlow');
